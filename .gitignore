@@ -10,8 +10,9 @@ fact_files/
 .vagrant/
 *.pyc
 .vscode
-*.log
+log/
 conf/common_packages.yml
+
 
 ### Linux ###
 *~
