@@ -1,24 +1,24 @@
 ---
 
-## Global variables
-
-ansible_user: "root"
-
-ansible_port: "22"
+# Variables here are applicable to all host groups
+deploy_user: "{{ ansible_user }}"
 
 # Local
 downloads_dir: "{{ playbook_dir }}/downloads"
 resources_dir: "{{ playbook_dir }}/resources"
 
-codis_dir: /Users/issenn/go/src/.com/CodisLabs/codis
+# Random shifts for retrying failed ops like downloading
+retry_stagger: 5
+
+codis_dir: "{{ playbook_dir }}/resources"
 
 coordinator_name: "etcd"
 
-coordinator_addr: "127.0.0.1:12379,127.0.0.1:22379,127.0.0.1:32379"
+coordinator_addr: "10.0.0.140:12379,10.0.0.140:22379,10.0.0.140:32379"
 
-codis_install_dir: /Users/issenn/test/codis-vip
+codis_install_dir: /opt/codis
 
-product_name: codis-cluster1
+product_name: codis-cluster
 
 product_auth: hellotalk
 
@@ -28,10 +28,10 @@ proxy_addr: 127.0.0.1:19000
 
 proxy_admin_addr: 127.0.0.1:11080
 
-codis_server_workdir: /Users/issenn/test/data/redis-6379
+codis_server_workdir: /data/redis-6379
 
 codis_server_port: 6379
 
-redis_sentinel_workdir: /Users/issenn/test/data/sentinel-26379
+redis_sentinel_workdir: /data/sentinel-26379
 
 redis_sentinel_port: 26379
