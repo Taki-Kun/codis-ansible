@@ -11,7 +11,7 @@
   with_items:
   - "{{ downloads_dir }}"
   - "{{ resources_dir }}"
-  - "{{ resources_dir }}/bin"
+  - "{{ binary_dir }}"
 
 - name: create packages.yml
   template: src=common_packages.yml.j2 dest={{ playbook_dir }}/conf/common_packages.yml
